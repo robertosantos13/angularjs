@@ -1,0 +1,23 @@
+<div id="botaoCadastro2">
+<div  class="form-group">
+
+    <span ng-if="rendimentoMensais.meses" style="color:darkorange">
+            <h3>Atualizarndo dados...</h3></span>
+            <input ng-model="rendimentoMensais.meses" type="text" class="form-control">
+            <input ng-model="rendimentoMensais.valorMensal" type="text" class="form-control">
+            <input ng-model="rendimentoMensais.gastoMensal" placeholder="Gasto" type="text" class="form-control">
+            <button id="button_atualizar_meses" class="btn btn-success" ng-click="atualizar(rendimentoMensais)">Atualizar</button>
+            <!-- <button class="btn btn-danger" ng-click="cancelar()">Cancelar</button> -->
+            
+            <div>
+                <span ng-if="tr_deletar" style="color:red">Removendo....</span>
+                <input ng-if="tr_deletar" ng-model="rendimento_remover.meses" type="text" class="form-control">
+                <input ng-if="tr_deletar" ng-model="rendimento_remover.valorMensal" type="text" class="form-control">
+                <input ng-if="tr_deletar" ng-model="rendimento_remover.gastoMensal" placeholder="Gasto" type="text" class="form-control">
+        <button ng-if="tr_deletar" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+        <button ng-if="tr_deletar" class="btn btn-danger" ng-click="confirmarDelete(rendimento_remover)">Remover</button>
+    </div>
+    <a id="a_button_meses" type="button" class="btn btn-warning" ng-href="/">Voltar a pagina</a>
+</div>
+</div>
+

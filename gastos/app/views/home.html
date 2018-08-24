@@ -1,0 +1,62 @@
+<div id="busca">
+    <input type="text" placeholder="Busca..." class="form-control" ng-model="filtroMeses">
+</div>
+<hr>
+
+<div id="botaoCadastro">
+    <button ng-show="!tr_deletar" ng-click="cadastrar =! cadastrar" class="btn btn-primary">Cadastrar</button>
+
+    <div ng-show="cadastrar || tr_deletar" class="form-group">
+
+        <div ng-if="!tr_edit && !tr_deletar">
+            <span ng-if="cadastrar" style="color:green">Cadastrando..</span>
+            <input ng-model="rendimento.meses" placeholder="Digite o mes" type="text" class="form-control">
+            <input ng-model="rendimento.gastoMensal" placeholder="Gasto" type="text" class="form-control">
+            <input ng-model="rendimento.valorMensal" placeholder="Valor" type="text" class="form-control">
+            <button ng-if="cadastrar" ng-click="add(rendimento)" class="btn btn-success">Cadastrar Meses</button>
+            <button ng-if="cadastrar" class="btn btn-danger cancelar_cadastro" ng-click="cancelar(rendimento)">Cancelar</button>
+        </div>
+
+        <div ng-if="!cadastrar">
+            <span ng-if="tr_deletar" style="color:red">Removendo....</span>
+            <input ng-if="tr_deletar" ng-model="rendimento_remover.meses" type="text" class="form-control">
+            <input ng-if="tr_deletar" ng-model="rendimento_remover.valorMensal" type="text" class="form-control">
+            <input ng-if="tr_deletar" ng-model="rendimento_remover.gastoMensal" placeholder="Gasto" type="text" class="form-control">
+            <button ng-if="tr_deletar" class="btn btn-default" ng-click="cancelar()">Cancelar</button>
+            <button ng-if="tr_deletar" class="btn btn-danger" ng-click="confirmarDelete(rendimento_remover)">Remover</button>
+        </div>
+    </div>
+    <table class="table table-striped" ng-table="tableParams">
+        <div ng-show="  ">
+
+        </div>
+        <thead>
+            <tr>
+                <th ng-click="orderByMe('meses')">Mês</th>
+                <th ng-click="orderByMe('valor')">Valor Mensal</th>
+                <th ng-click="orderByMe('gastoMensal')">Gasto Mensal</th>
+                <th ng-click="orderByMe('saldo')">Saldo do Mês</th>
+                <th>Excluir</th>
+                <th>Atualizar</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr ng-repeat="rendimento in rendimentoMensais | orderBy: myOrderBy | filter: filtroMeses">
+                <td>{{rendimento.meses | capitalize}}</td>
+                <td>{{rendimento.valorMensal | currency: "R$ "}}</td>
+                <td>{{rendimento.gastoMensal | currency: "R$ "}}</td>
+                <td ng-class="{red: (rendimento.saldoMes) < 0} ">{{rendimento.saldoMes | currency: "R$ "}}</td>
+                <td>
+                    <button type="button" class="btn btn-warning " ng-click="deletar(rendimento)">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Remover
+                    </button>
+                </td>
+                <td>
+                    <a type="button" class="btn btn-success" ng-href="#/meses/{{rendimento.id}}">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Atualizar
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>

@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+}
+
+#color {
+    font-family: 'Share Tech', sans-serif;
+    font-size: 18px;
+    background-color: cadetblue;
+}
+
+.page-header {
+    text-align: center;
+    color: chocolate;
+    background-color: black;
+    margin-top: -40px;
+    padding-top: 40px;
+}
+
+.form-group {
+    margin-bottom: 0px;
+}
+
+
+thead {
+    background-color: black;
+    color: floralwhite;
+}
+tbody {
+    text-align: center;
+}
+
+.cadastroInput {
+    width: 20%;
+}
+
+div {
+    background-color: #f2f2f2;
+    padding: 6px;
+}
+
+input[type=text],
+select {
+    width: 32%;
+    padding: 7px 8px;
+    display: inherit;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    margin-bottom: 2px;
+}
+
+.btn-primary {
+    margin-left: 10px;
+}
+
+#busca>input {
+    margin-left: 10px;
+}
+
+.cancelar_cadastro {
+    position: absolute;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    left: 144px;
+    right: 0;
+    bottom: 388px;
+}
+
+.red {
+    color: red;
+}
+
+#botaoCadastro2 {
+    margin-left: auto;
+    background-color: #f2f2f2;
+    padding: 6px;
+    padding-left: 342px;
+    padding-top: 81px;
+}
+
+/* meses */
+
+#button_atualizar_meses {
+    position: relative;
+    left: 0px;
+    bottom: 0px;
+    width: 106px;
+}
+
+#a_button_meses {
+    position: absolute;
+    color: #fff;
+    background-color: #f0ad4e;
+    border-color: #eea236;
+    left: 454px;
+    right: 0;
+    bottom: 423px;
+    width: 102px;
+}
