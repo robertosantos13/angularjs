@@ -21,7 +21,7 @@ if(count($data) > 0) {
     $gastoMensal = mysqli_real_escape_string($conn, $data->gastoMensal); 
     $saldoMes = mysqli_real_escape_string($conn, $data->saldoMes); 
     
-    $sql = "UPDATE tb_gastos  SET saldoMes = ($valorMensal - $gastoMensal),gastoMensal = $gastoMensal, valorMensal = $valorMensal  where id = $id";
+     $sql = "UPDATE tb_gastos  SET  valorMensal = $valorMensal, gastoMensal = $gastoMensal,meses = '$meses', saldoMes = (valorMensal - gastoMensal)  where id = $id";
     
     if ($conn->query($sql) === TRUE) {
         echo "Record updated successfully";
@@ -31,3 +31,4 @@ if(count($data) > 0) {
 }
 
 $conn->close();
+?>

@@ -13,7 +13,7 @@
             <input ng-model="rendimento.meses" placeholder="Digite o mes" type="text" class="form-control">
             <input ng-model="rendimento.gastoMensal" placeholder="Gasto" type="text" class="form-control">
             <input ng-model="rendimento.valorMensal" placeholder="Valor" type="text" class="form-control">
-            <button ng-if="cadastrar" ng-click="add(rendimento)" class="btn btn-success">Cadastrar Meses</button>
+            <button ng-if="cadastrar" ng-click="add(rendimento)" class="btn btn-success cadastrar_meses">Cadastrar Meses</button>
             <button ng-if="cadastrar" class="btn btn-danger cancelar_cadastro" ng-click="cancelar(rendimento)">Cancelar</button>
         </div>
 
@@ -58,5 +58,11 @@
                     </a>
                 </td>
             </tr>
+            <tr>
+                <td>Total</td>    
+                <td colSpan="6">total do mes</td>    
+                
+            </tr>
         </tbody>
+    
     </table>

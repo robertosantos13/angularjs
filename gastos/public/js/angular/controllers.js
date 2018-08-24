@@ -4,9 +4,10 @@ meusGastos.controller('homeController', function ($scope, $http) {
 
 
     $scope.displayData = function () {
-        $http.get("http://localhost/gastos/database/connection.php")
+        $http.get("http://localhost/angularjs/gastos/database/connection.php")
             .then(function (response) {
                 $scope.rendimentoMensais = response.data;
+               
             });
     };
 
@@ -20,9 +21,10 @@ meusGastos.controller('homeController', function ($scope, $http) {
             gastoMensal: valor.gastoMensal,
             saldoMes: valor.saldoMes,
         };
-        $http.post('http://localhost/gastos/database/insert.php', data, {
+        $http.post('http://localhost/angularjs/gastos/database/insert.php', data, {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(function () {
+            console.log(data);
             alert('Dados cadastrado com sucesso!');
             window.location.reload(3);
         });
@@ -40,13 +42,16 @@ meusGastos.controller('homeController', function ($scope, $http) {
             gastoMensal: valor.gastoMensal,
             saldoMes: valor.saldoMes,
         };
+        console.log(data);
 
-        $http.post('http://localhost/gastos/database/update.php', data, {
+        $http.post('http://localhost/angularjs/gastos/database/update.php', data, {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(function () {
+            console.log(data);
             console.log("Atualizado com sucesso!");
             $scope.tr_edit = false;
-            window.location.reload(3);    
+         
+            window.location.reload(3);
         });
     };
 
@@ -81,7 +86,7 @@ meusGastos.controller('homeController', function ($scope, $http) {
         data = {
             id: index.id
         };
-        $http.post('http://localhost/gastos/database/delete.php', data, {
+        $http.post('http://localhost/angularjs/gastos/database/delete.php', data, {
             headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
         }).then(function () {
 
@@ -100,7 +105,7 @@ meusGastos.controller('mesesController', function ($scope, $routeParams, $http) 
     data = {
         id: $routeParams.id,
     };
-    $http.get("http://localhost/gastos/database/connection.php", data)
+    $http.get("http://localhost/angularjs/gastos/database/connection.php", data)
         .then(function (response) {
             if (response) {
                 $pegar_array = response.data;
@@ -108,9 +113,11 @@ meusGastos.controller('mesesController', function ($scope, $routeParams, $http) 
                     $pegar_id = $pegar_array[i];
                     if ($pegar_id.id == data.id) {
                         $scope.rendimentoMensais = $pegar_id;
+                        console.log($scope.rendimentoMensais);
                     }
                 }
             }
+           
         });
 });
 

@@ -20,11 +20,11 @@
     margin-bottom: 0px;
 }
 
-
 thead {
     background-color: black;
     color: floralwhite;
 }
+
 tbody {
     text-align: center;
 }
@@ -38,8 +38,7 @@ div {
     padding: 6px;
 }
 
-input[type=text],
-select {
+input[type=text], select {
     width: 32%;
     padding: 7px 8px;
     display: inherit;
@@ -49,26 +48,24 @@ select {
     margin-bottom: 2px;
 }
 
-.btn-primary {
-    margin-left: 10px;
-}
+
 
 #busca>input {
     margin-left: 10px;
 }
 
-.cancelar_cadastro {
-    position: absolute;
-    color: #fff;
-    background-color: #d9534f;
-    border-color: #d43f3a;
-    left: 144px;
-    right: 0;
-    bottom: 388px;
-}
-
 .red {
     color: red;
+}
+
+
+/* buttons */
+
+#button_atualizar_meses {
+    position: relative;
+    left: 0px;
+    bottom: -4px;
+    width: 32%;
 }
 
 #botaoCadastro2 {
@@ -78,23 +75,30 @@ select {
     padding-left: 342px;
     padding-top: 81px;
 }
-
-/* meses */
-
-#button_atualizar_meses {
-    position: relative;
-    left: 0px;
-    bottom: 0px;
-    width: 106px;
-}
-
-#a_button_meses {
-    position: absolute;
+#a_button_voltarPagina {
     color: #fff;
     background-color: #f0ad4e;
-    border-color: #eea236;
-    left: 454px;
-    right: 0;
-    bottom: 423px;
-    width: 102px;
+    border-color: #eea236;;
+    width: 32%;
+}
+
+.cancelar_cadastro {
+   position: absolute;
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    width: 15%;
+    margin-left: 3px;
+}
+
+
+.cadastrar_meses {
+    color: #fff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    width: 16%;
+    margin-top: 1px;
+}
+.btn-primary {
+    margin-left: 10px;
 }
