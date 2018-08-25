@@ -11,8 +11,8 @@
         <div ng-if="!tr_edit && !tr_deletar">
             <span ng-if="cadastrar" style="color:green">Cadastrando..</span>
             <input ng-model="rendimento.meses" placeholder="Digite o mes" type="text" class="form-control">
-            <input ng-model="rendimento.gastoMensal" placeholder="Gasto" type="text" class="form-control">
             <input ng-model="rendimento.valorMensal" placeholder="Valor" type="text" class="form-control">
+            <input ng-model="rendimento.gastoMensal" placeholder="Gasto" type="text" class="form-control">
             <button ng-if="cadastrar" ng-click="add(rendimento)" class="btn btn-success cadastrar_meses">Cadastrar Meses</button>
             <button ng-if="cadastrar" class="btn btn-danger cancelar_cadastro" ng-click="cancelar(rendimento)">Cancelar</button>
         </div>
@@ -27,9 +27,6 @@
         </div>
     </div>
     <table class="table table-striped" ng-table="tableParams">
-        <div ng-show="  ">
-
-        </div>
         <thead>
             <tr>
                 <th ng-click="orderByMe('meses')">Mês</th>
@@ -60,7 +57,7 @@
             </tr>
             <tr>
                 <td>Total</td>    
-                <td colSpan="6">total do mes</td>    
+                <td colSpan="6" ng-class="{red: (saldoTotal) < 0}">{{saldoTotal | currency: "R$ "}}</td>    
                 
             </tr>
         </tbody>

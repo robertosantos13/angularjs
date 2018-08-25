@@ -4,7 +4,7 @@ var $jQuery;
 var meusGastos = angular.module("gastos", ["ngRoute","ngTable"]);
 
 var rendimentoMensais = [];
-
+var total = 0;
 meusGastos.config(function ($routeProvider) {
     
     $routeProvider

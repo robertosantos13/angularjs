@@ -1,13 +1,18 @@
 meusGastos.controller('homeController', function ($scope, $http) {
-    var titulo = 'Controle de Gastos';
-    $scope.titulo = titulo;
-
+        $scope.titulo = 'Controle de Gastos';
+   
 
     $scope.displayData = function () {
         $http.get("http://localhost/angularjs/gastos/database/connection.php")
             .then(function (response) {
                 $scope.rendimentoMensais = response.data;
-               
+                for (var i = 0; i < $scope.rendimentoMensais.length; i++) {
+                    $pegar_valor = parseInt($scope.rendimentoMensais[i].saldoMes);
+                    total += parseInt($pegar_valor);
+
+                    }
+                    $scope.saldoTotal = total;
+                console.log($scope.saldoTotal)
             });
     };
 
@@ -50,9 +55,12 @@ meusGastos.controller('homeController', function ($scope, $http) {
             console.log(data);
             console.log("Atualizado com sucesso!");
             $scope.tr_edit = false;
-         
-            window.location.reload(3);
+            $("#panel").slideToggle(500);
+            $("#panel").slideUp(3000);
+
+          
         });
+        window.location.reload(3);
     };
 
     // editar    
@@ -79,6 +87,7 @@ meusGastos.controller('homeController', function ($scope, $http) {
         if ($scope.tr_deletar = true) {
             $scope.rendimento_remover = index;
         }
+       
     }
     $scope.confirmarDelete = function (index) {
         var indexof = $scope.rendimentoMensais.indexOf(index);
@@ -108,12 +117,13 @@ meusGastos.controller('mesesController', function ($scope, $routeParams, $http) 
     $http.get("http://localhost/angularjs/gastos/database/connection.php", data)
         .then(function (response) {
             if (response) {
+                $valorTotal = [];
                 $pegar_array = response.data;
                 for (var i = 0; i < $pegar_array.length; i++) {
                     $pegar_id = $pegar_array[i];
                     if ($pegar_id.id == data.id) {
                         $scope.rendimentoMensais = $pegar_id;
-                        console.log($scope.rendimentoMensais);
+                        
                     }
                 }
             }

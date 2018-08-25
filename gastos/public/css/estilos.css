@@ -16,9 +16,7 @@
     padding-top: 40px;
 }
 
-.form-group {
-    margin-bottom: 0px;
-}
+
 
 thead {
     background-color: black;
@@ -34,7 +32,6 @@ tbody {
 }
 
 div {
-    background-color: #f2f2f2;
     padding: 6px;
 }
 
@@ -101,4 +98,17 @@ input[type=text], select {
 }
 .btn-primary {
     margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+
+#panel {
+     padding: 5px;
+     margin-top: 5px;
+    text-align: center;
+    background-color: #e5eecc;
+    border: solid 1px #c3c3c3;
+    padding: 50px;
+    display: none;
+     width: 32%;
 }
